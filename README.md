@@ -1,4 +1,7 @@
 # canvaskit-oc
+
+![npm](https://img.shields.io/npm/v/canvaskit-oc)
+
 Fork of Skia's canvaskit with changes to support offscreen canvas, releases kept in sync with upstream.
 
 Current canvaskit sync version: 0.17.3
@@ -15,7 +18,7 @@ Created for use with [React-CanvasKit](https://github.com/udevbe/react-canvaskit
 
 `yarn add canaskit-oc`
 
-This build is optimized for web (so no node support) and expects
+This library expects
 `import canvaskitWasmURL from './canvaskit.wasm.asset'`
 to be resolved to a URL by the bundler resolving the `canvaskit-oc` module. This is required so bundlers don't bypass the
 JavaScript responsible for loading the wasm file.
