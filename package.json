@@ -1,0 +1,25 @@
+{
+  "name": "canvaskit-oc",
+  "version": "0.0.1-alpha.0",
+  "description": "Fork of Skia's canvaskit with changes to support offscreen canvas, releases kept in sync with upstream.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "nwb build-web-module --copy-files",
+    "clean": "nwb clean-web-module",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": "git@github.com:udevbe/canvaskit-oc.git",
+  "author": "Erik De Rijcke",
+  "license": "BSD-3-Clause",
+  "private": false,
+  "dependencies": {},
+  "devDependencies": {
+    "nwb": "0.25.2"
+  }
+}
