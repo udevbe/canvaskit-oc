@@ -1,6 +1,8 @@
-import CanvasKitInit from './canvaskit'
-import canvaskitWasmURL from './canvaskit.wasm.asset'
+import packageJson from '../package.json'
+import CanvasKitInit from './canvaskitoc'
 
-export function init() {
-    return CanvasKitInit({locateFile: _ => canvaskitWasmURL})
+export function init(wasmLibURL) {
+    return wasmLibURL ?
+        CanvasKitInit({locateFile: () => wasmLibURL}) :
+        CanvasKitInit({locateFile: () => `https://unpkg.com/canvaskit-oc@${packageJson.version}/lib/canvaskit.wasm`})
 }
