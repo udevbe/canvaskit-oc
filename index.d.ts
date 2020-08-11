@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export interface InitFunc {
-  (): Promise<CanvasKit>
+  (config?: {locateFile: () => string}): Promise<CanvasKit>
 }
 
 export const init: InitFunc

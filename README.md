@@ -18,10 +18,26 @@ Created for use with [React-CanvasKit](https://github.com/udevbe/react-canvaskit
 
 `yarn add canaskit-oc`
 
-This library expects
-`import canvaskitWasmURL from './canvaskit.wasm.asset'`
-to be resolved to a URL by the bundler resolving the `canvaskit-oc` module. This is required so bundlers don't bypass the
-JavaScript responsible for loading the wasm file.
+The WASM part included in this library is by default not directly used when bundled. Instead, the (same) wasm library is downloaded 
+from [unpkg](https://unpkg.com/) at runtime. The reason for this is the often [broken](https://github.com/webpack/webpack/issues/7352) [way](https://github.com/rollup/rollup/issues/1636) bundlers and Emscripten resolve WASM libraries.
+
+# Usage
+```javascript
+import { init } from 'canvaskit-oc'
+init().then(canvasKit => {
+    // do your canvaskit thing
+})
+```
+
+# Customizing the WASM URL
+If needed, you can still tell canvaskit-oc to use a different URL to resolve the WASM library. The  `canvaskit.wasm` WASM file is still present
+in `node_modules` so you can copy it and use ie. the webpack file-loader plugin and import the WASM library, which will resolve to a local URL.
+Make sure to give it a different extension than `.wasm` or webpack will try to import it directly.
+```javascript
+import { init as canvasKitInit } from 'canvaskit-oc'
+import canvaskitWasmURL from './canvaskit.wasm.asset'
+canvasKitInit({locateFile: () => canvaskitWasmURL})
+```
 
 This example Webpack config configures a loader to get a URL from the wasm asset file. The name part is optional but does speed up the processing of the wasm file by the browser as
 it will be served using application/wasm mimetype which enables the browser to do streaming compilation.
@@ -50,12 +66,4 @@ module.exports = {
     ]
   }
 }
-```
-
-# Usage
-```javascript
-import { init } from 'canvaskit-oc'
-init().then(canvasKit => {
-    // do your canvaskit thing
-})
 ```
