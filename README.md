@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/canvaskit-oc)
 
-Fork of Skia's canvaskit with changes to support offscreen canvas, releases kept in sync with upstream.
+[Fork of Skia's canvaskit](https://github.com/udevbe/skia/tree/canvaskit-oc) with changes to support offscreen canvas, releases kept in sync with upstream.
 
 Current canvaskit sync version: 0.17.3
 
