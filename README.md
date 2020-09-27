@@ -16,7 +16,7 @@ Created for use with [React-CanvasKit](https://github.com/udevbe/react-canvaskit
 
 # Installation
 
-`yarn add canaskit-oc`
+`yarn add canvaskit-oc`
 
 The WASM part included in this library is by default not directly used when bundled. Instead, the (same) wasm library is downloaded 
 from [unpkg](https://unpkg.com/) at runtime. The reason for this is the often [broken](https://github.com/webpack/webpack/issues/7352) [way](https://github.com/rollup/rollup/issues/1636) bundlers and Emscripten resolve WASM libraries.
