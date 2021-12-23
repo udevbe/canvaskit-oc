@@ -1,3 +1,5 @@
+This project is obsolete. CanvasKit should support offscreen canvas.
+
 # canvaskit-oc
 
 ![npm](https://img.shields.io/npm/v/canvaskit-oc)
